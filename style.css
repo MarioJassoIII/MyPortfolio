@@ -547,3 +547,10 @@ footer a {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+.project-card:hover .project-video {
+  opacity: 1;
+}
+
+.project-card:hover img {
+  opacity: 0;
+}
