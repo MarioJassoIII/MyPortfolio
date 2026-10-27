@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Full-width black navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5%;
+
+  background-color: #000000;
+  color: white;
+}
+
+/* Your name and title on the left */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.role {
+  color: #d010c3;
+  font-size: 18px;
+}
+
+.divider {
+  color: #777;
+  font-weight: normal;
+}
+
+/* Navigation links */
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.nav-links a {
+  display: block;
+  padding: 10px 18px;
+  border-radius: 50px;
+
+  color: #fafbfc;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links a.active {
+  background: #f0f0f2;
+  color: #111;
+}
+
+/* Separate resume button */
+.resume-button {
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  background: #d010c3;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Hover effects for navigation links only */
+.nav-links a:hover {
+  background: #333740;
+  color: white;
+}
+
+/* Keep the logo unchanged on hover */
+.logo:hover {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+/* Keep the logo's colors unchanged */
+.logo:hover .initials {
+  color: white;
+}
+
+.logo:hover .divider {
+  color: #777;
+}
+
+.logo:hover .role {
+  color: #52064d;
+}
+
+/* Keep the resume button lime green on hover */
+.resume-button:hover {
+  background: #52064d;
+  color: #111;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  border-bottom: 1px solid #292c32;
+}
+
+/* Hamburger button: hidden on desktop */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid #292c32;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Tablet and mobile */
+@media (max-width: 850px) {
+  .navbar {
+    padding: 12px 5%;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 30px;
+    gap: 10px;
+  }
+
+  .role {
+    font-size: 18px;
+  }
+
+  .nav-right {
+    position: relative;
+    gap: 0;
+    font-size: 8px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 500px) {
+  .logo {
+    font-size: 18px;
+    gap: 5px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .navbar {
+    padding: 12px 3%;
+  }
+  .nav-right {
+    position: relative;
+
+    font-size: 8px;
+  }
+}
+
+main {
+  color: #f0f0f2;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5%;
+  margin: 50px auto 0;
+  flex: 1;
+}
+
+.projects-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  width: 100%;
+  max-width: 1600px;
+  margin: 20px auto 0;
+
+  gap: 0;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Each section */
+.project-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  overflow: hidden;
+
+  background: #111;
+  text-decoration: none;
+}
+
+/* Photos */
+.project-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+/* Hover overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 25px;
+  color: white;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.15));
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-overlay h3 {
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+}
+
+.project-overlay p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 15px;
+}
+
+.project-overlay span {
+  color: #d010c3;
+  font-weight: 600;
+}
+
+/* Hover animation */
+.project-card:hover .project-overlay,
+.project-card:focus-visible .project-overlay {
+  opacity: 1;
+}
+
+.project-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+  .projects-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+footer {
+  color: #f0f0f2;
+  border-top: 1px solid #292c32;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 5%;
+}
+footer a {
+  color: #f0f0f2;
+  text-decoration: none;
+}
+
+/* About page layout */
+.about-main {
+  color: #f0f0f2;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 5%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* Two columns side by side */
+.about-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: start;
+  gap: 70px;
+
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Left column */
+.about-content {
+  min-width: 0;
+}
+
+.about-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin: 0 0 25px;
+  line-height: 1.2;
+}
+
+/* Thin line beneath the heading */
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #39313b;
+  margin-bottom: 30px;
+}
+
+/* About paragraphs */
+.about-text p {
+  color: #b9bbc5;
+  font-size: 1rem;
+  line-height: 1.9;
+  margin: 0 0 20px;
+}
+
+/* Right column */
+.about-image {
+  width: 100%;
+  max-width: 530px;
+  justify-self: end;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid #292c32;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Stack the columns on smaller screens */
+@media (max-width: 850px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-image {
+    max-width: 450px;
+    justify-self: start;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 480px) {
+  .about-main {
+    padding: 30px 5%;
+  }
+
+  .about-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .about-divider {
+    margin-bottom: 22px;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+}
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--purp);
+  border-radius: 50%;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+  box-shadow: 0 0 8px var(--purp);
+}
+
+.status-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--purp);
+  text-transform: uppercase;
+}
+
+:root {
+  --purp: #ff00dd;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #d010c3;
+  font-size: 22px;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #5f0759;
+  transform: translateY(-3px);
+}
+
+/* ===== Pure CSS Mobile Menu ===== */
+
+/* Hide the real checkbox */
+.menu-checkbox {
+  display: none;
+}
+
+/* Style the label as a button – hidden on desktop */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid #292c32;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+/* Show “Menu” by default, hide “Close” */
+.menu-toggle .close-text {
+  display: none;
+}
+
+/* When checked → swap the text */
+.menu-checkbox:checked + .menu-toggle .menu-text {
+  display: none;
+}
+.menu-checkbox:checked + .menu-toggle .close-text {
+  display: inline;
+}
+
+/* ===== Mobile dropdown ===== */
+@media (max-width: 850px) {
+  /* Show the Menu/Close button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide the links by default on mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #111;
+    border-bottom: 1px solid #292c32;
+    padding: 12px 5%;
+    z-index: 100;
+  }
+
+  /* Show links when the checkbox is checked */
+  .menu-checkbox:checked ~ .nav-links {
+    display: block;
+  }
+
+  /* Stack the links vertically */
+  .nav-links ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 18px;
+  }
+
+  /* Optional: hide the Resume button on very small screens */
+  /* Uncomment the next 3 lines if you want it hidden on mobile */
+  /*
+  .resume-button {
+    display: none;
+  }
+  */
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card img,
+.project-video {
+  width: 100%;
+  display: block;
+}
+
+.project-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Jasso III</title>
+    <link rel="icon" type="image/png" href="./media/Favicon.png">
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+
+
+        <nav class="navbar">
+
+            <a href="#home" class="logo">
+                <span class="initials">Mario Jasso III</span>
+                <span class="divider">|</span>
+                <span class="role">GAME DESIGNER</span>
+            </a>
+
+            <div class="nav-right">
+
+                <!-- Hidden checkbox that controls the menu -->
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+                <!-- Visible button (only shows on mobile) -->
+                <label for="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+                    <span class="menu-text">Menu</span>
+                    <span class="close-text">Close</span>
+                </label>
+
+                <!-- Your existing links -->
+                <div class="nav-links" id="mobile-menu">
+                    <ul>
+                        <li><a href="./index.html" class="active">Projects</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <a href="resume.pdf" class="resume-button">
+                            Resume
+                        </a>
+                    </ul>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="home-intro">
+            <p class="eyebrow">Selected Work 2026</p>
+            <h3 id="intro-title">
+                <p>Level Design | Game Mechanics
+                </p>
+            </h3>
+        </section>
+
+
+        <section class="projects-gallery">
+
+            <a href="./project1.html" class="project-card">
+                <img src="./media/LD1.png" alt="Level Design">
+
+                <video class="project-video" muted loop preload="metadata">
+                    <source src="./media/LD1.mp4" type="video/mp4">
+                </video>
+
+                <div class="project-overlay">
+                    <h3>Level Design|Level Mechanic</h3>
+                    <p>Role: Game Designer</p>
+                    <span>View Project →</span>
+                </div>
+            </a>
+
+            <a href="projects.html" class="project-card">
+                <img src="./media/LD2.png" alt="Game Mechanic">
+
+                <video class="project-video" muted loop preload="metadata">
+                    <source src="./media/LD2.mp4" type="video/mp4">
+                </video>
+
+                <div class="project-overlay">
+                    <h3>Level Design|Player Mechanic</h3>
+                    <p>Role: Game Designer</p>
+                    <span>View Project →</span>
+                </div>
+            </a>
+
+            <a href="projects.html" class="project-card">
+                <img src="./media/LD3.png" alt="UI/UX">
+
+                <video class="project-video" muted loop preload="metadata">
+                    <source src="./media/LD3.mp4" type="video/mp4">
+                </video>
+
+                <div class="project-overlay">
+                    <h3>UI Design|Player Mechanic</h3>
+                    <p>Role: Game Designer</p>
+                    <span>View Project →</span>
+                </div>
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="current-project">
+            <span class="status-dot"></span>
+            <span class="status-label">OPEN FOR WORK</span>
+
+        </div>
+        <div class="footer-links">
+            <span>Contact&rarr;</span>
+            <a href="mailto:mariojasso3@outlook.com" aria-label="Email Mario">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/mario-jasso-221347402/" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn profile">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.project-card');
+
+        cards.forEach(card => {
+            const video = card.querySelector('.project-video');
+
+            card.addEventListener('mouseenter', () => {
+                video.style.opacity = '1';
+                video.play();
+            });
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+                video.style.opacity = '0';
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
