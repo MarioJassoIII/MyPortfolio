@@ -140,20 +140,20 @@
     <script>
         const cards = document.querySelectorAll('.project-card');
 
-        cards.forEach(card => {
-            const video = card.querySelector('.project-video');
+cards.forEach(card => {
+    const video = card.querySelector('.project-video');
 
-            card.addEventListener('mouseenter', () => {
-                video.style.opacity = '1';
-                video.play();
-            });
-
-            card.addEventListener('mouseleave', () => {
-                video.pause();
-                video.currentTime = 0;
-                video.style.opacity = '0';
-            });
+    if (window.innerWidth > 768) {
+        card.addEventListener('mouseenter', () => {
+            video.play();
         });
+
+        card.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+});
     </script>
 
 
